@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Open Source Corrupter</title>
+    <style>
+        :root {
+            --win-bg: #f3f3f3;
+            --win-card: #ffffff;
+            --win-border: #dcdcdc;
+            --win-text: #1b1b1b;
+            --win-text-muted: #606060;
+            --win-blue: #0067c0;
+            --win-blue-hover: #005a9e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--win-bg);
+            color: var(--win-text);
+            line-height: 1.6;
+        }
+
+        /* Windows 10/11 Titlebar Style Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(243, 243, 243, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--win-border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 30px;
+            z-index: 1000;
+        }
+
+        nav .logo {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: var(--win-text);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav ul li a {
+            color: var(--win-text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.15s;
+        }
+
+        nav ul li a:hover {
+            color: var(--win-blue);
+        }
+
+        /* Home Section */
+        header {
+            padding: 150px 20px 70px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--win-border);
+            background: linear-gradient(180deg, #ffffff 0%, var(--win-bg) 100%);
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 12px;
+            color: var(--win-text);
+            font-weight: 600;
+        }
+
+        h1 span {
+            color: var(--win-blue);
+        }
+
+        p.subtitle {
+            font-size: 1.15rem;
+            color: var(--win-text-muted);
+            max-width: 600px;
+            margin: 0 auto 25px auto;
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+        }
+
+        /* Windows Fluent Style Buttons */
+        .btn {
+            background-color: var(--win-blue);
+            color: white;
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(0,0,0,0.1);
+            transition: background 0.15s, transform 0.05s;
+        }
+
+        .btn:hover {
+            background-color: var(--win-blue-hover);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        .btn-secondary {
+            background-color: #ffffff;
+            border: 1px solid var(--win-border);
+            color: var(--win-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: #fafafa;
+        }
+
+        /* Container & Fluent Cards */
+        .container {
+            max-width: 850px;
+            margin: 0 auto;
+            padding: 50px 20px;
+        }
+
+        section {
+            background-color: var(--win-card);
+            border: 1px solid var(--win-border);
+            border-radius: 8px;
+            padding: 35px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-bottom: 18px;
+            color: var(--win-text);
+            font-weight: 600;
+            border-bottom: 1px solid var(--win-border);
+            padding-bottom: 8px;
+        }
+
+        p, ul li {
+            color: var(--win-text);
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 22px;
+            margin-bottom: 10px;
+            color: var(--win-text-muted);
+        }
+
+        ul li strong {
+            color: var(--win-text);
+        }
+
+        ul li::before {
+            content: "•";
+            color: var(--win-blue);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            font-size: 1.2rem;
+            line-height: 1;
+        }
+
+        /* Download Box Style */
+        .download-box {
+            background-color: #fcfcfc;
+            border: 1px solid var(--win-border);
+            border-radius: 6px;
+            padding: 20px;
+            margin-top: 15px;
+            margin-bottom: 25px;
+        }
+
+        .download-box h3 {
+            color: var(--win-text);
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 25px;
+            border-top: 1px solid var(--win-border);
+            color: var(--win-text-muted);
+            font-size: 0.85rem;
+            background-color: var(--win-card);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Windows Style Navbar -->
+    <nav>
+        <div class="logo">🪟 Open Source Corrupter</div>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#who">Who is it for</a></li>
+            <li><a href="#download">Download</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <header id="home">
+        <h1>Open Source <span>Corrupter</span></h1>
+        <p class="subtitle">A lightweight file and folder corruption utility built with Python, featuring a clean Windows-styled graphical interface.</p>
+        <div class="btn-container">
+            <a href="#download" class="btn">Get Release v1.0.0</a>
+            <a href="https://github.com/gabrielepccomputer-hub/open-source-corrupter" target="_blank" class="btn btn-secondary">GitHub Repository</a>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <!-- Who Is It For Section -->
+        <section id="who">
+            <h2>Who Is It For?</h2>
+            <p><strong>Open Source Corrupter</strong> is specifically built for developers, software testers, and security researchers who need a reliable, quick utility to intentionally alter and test file structures.</p>
+            <ul>
+                <li><strong>Software Developers & QA Testers:</strong> Ideal for robustness testing, exception-handling verification, and ensuring applications gracefully handle corrupted assets, configs, or local databases without crashing unexpectedly.</li>
+                <li><strong>Security Researchers & Fuzzers:</strong> Useful for evaluating how specific file parsers react to malformed input streams and unexpected binary configurations.</li>
+                <li><strong>Hobbyists & Tech Enthusiasts:</strong> Anyone interested in safe experimentation with raw file bytes and custom binary overriding scripts.</li>
+            </ul>
+        </section>
+
+        <!-- Download Section -->
+        <section id="download">
+            <h2>Download Release v1.0.0</h2>
+            <p>The stable version <strong>v1.0.0</strong> is ready for deployment. All assets are pre-compiled into standalone native executables, meaning no Python installation or third-party module setup is required on the target machine.</p>
+            
+            <div class="download-box">
+                <h3>📦 What's included in this release:</h3>
+                <ul>
+                    <li><strong>Windows Executable:</strong> Fully standalone `.exe` built with native Windows 10/11 interface elements and active path checking.</li>
+                    <li><strong>macOS Binary:</strong> Native compiled application package optimized for macOS environments.</li>
+                    <li><strong>Linux Binary:</strong> Standalone executable compiled for Linux distribution architectures.</li>
+                </ul>
+            </div>
+
+            <div style="text-align: center; margin-top: 25px;">
+                <a href="https://github.com/gabrielepccomputer-hub/open-source-corrupter/releases/tag/1.0.0" target="_blank" class="btn" style="padding: 12px 28px;">Download Release v1.0.0 on GitHub</a>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Open Source Corrupter. Distributed under the MIT License.</p>
+    </footer>
+
+</body>
+</html>
